@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/hook';
-import { fetchRepositories, resetResults } from '../../store/slice/repoSlice';
-import { transformWords } from '../../utils';
+import { useAppDispatch } from '../../shared/hooks/use-app-dispatch';
+import { useAppSelector } from '../../shared/hooks/use-app-selector';
+import { fetchRepositories } from '../../store/repositories/services';
+import { repositoriesActions } from '../../store/repositories/slice';
+import { transformWords } from '../../shared/utils/format-words';
 import { Card } from '../Card/Card';
-import type { IRepoCard } from '../../types/data';
+import { IRepository } from '../../store/repositories/types';
 import styles from './Main.module.css';
-import loopImg from '../../assets/icons/icon-search.svg';
+import loopImg from '../../shared/assets/icons/icon-search.svg';
 
 export const Main: React.FC = () => {
     const { loading, error, items, total_count } = useAppSelector((state) => state.repositories);
@@ -17,19 +19,19 @@ export const Main: React.FC = () => {
 
     useEffect(() => {
         if (isFetching) {
-            dispatch(fetchRepositories({ name, page }));
+            dispatch(fetchRepositories({ name, page, per_page: 10 }));
             setIsFetching(false);
         }
     }, [isFetching, dispatch, name, page])
 
 
-    function reset() {
+    const reset = () => {
         setPage(1);
-        dispatch(resetResults());
+        dispatch(repositoriesActions.resetResults());
     }
     
 
-    function handleSubmit(e: React.FormEvent) {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (name.trim()) {
@@ -99,7 +101,7 @@ export const Main: React.FC = () => {
                     <h2 className={styles.title}>Найдено {transformWords(total_count, words)}</h2>
 
                     <div className={styles.result__cards}>
-                        {items.map((item: IRepoCard) => <Card key={item.id} {...item} />)}
+                        {items.map((item: IRepository) => <Card key={item.id} item={item} />)}
                     </div>
 
                     <div className={styles.loader__wrapper}>
