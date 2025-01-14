@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/repositories-finder/static/css/main.f880e904.css",
-    "main.js": "/repositories-finder/static/js/main.8268d159.js",
+    "main.css": "/repositories-finder/static/css/main.bc2cd6e6.css",
+    "main.js": "/repositories-finder/static/js/main.37a83b27.js",
     "index.html": "/repositories-finder/index.html",
     "static/media/icon-search.svg": "/repositories-finder/static/media/icon-search.0cc0c98424cc75d5e1dfbb9e3abb6785.svg",
-    "main.f880e904.css.map": "/repositories-finder/static/css/main.f880e904.css.map",
-    "main.8268d159.js.map": "/repositories-finder/static/js/main.8268d159.js.map"
+    "main.bc2cd6e6.css.map": "/repositories-finder/static/css/main.bc2cd6e6.css.map",
+    "main.37a83b27.js.map": "/repositories-finder/static/js/main.37a83b27.js.map"
   },
   "entrypoints": [
-    "static/css/main.f880e904.css",
-    "static/js/main.8268d159.js"
+    "static/css/main.bc2cd6e6.css",
+    "static/js/main.37a83b27.js"
   ]
 }
