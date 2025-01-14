@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.results__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
